@@ -1,82 +1,80 @@
+<!DOCTYPE html>
 <html>
-<body  style ="background-color: lightblue;">
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        table {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
 <center>
-<table border="20" cellspacing="5" bgcolor:"white">
-<caption><b><h1><u>INPUT MARKS<u></h1></b></caption>
-<tr>
-<th rowspan="2"><u>NAME<u></th>
-<th colspan="4"><u>SCORE<u></th>
-</tr>
-
-<tr>
-<th> HINDI</th>
-<th>ENGLISH</th>
-<th> MATHS</th>
-<th>C PROGRAMMING</th>
-</tr>
-
-<tr>
-<td><input type="text"id="aname"></td>
-<td><input type="text"id="am"></td>
-<td><input type="text"id="aj"></td>
-<td><input type="text"id="ad"></td>
-<td><input type="text"id="an"></td>
-</tr>
-
-<tr>
-<th colspan="5" height="20">
-<input type="button" value="ADD TO TABLE" onclick="sub()"></th>
-</tr>
-</table>
-<br>
-<table border="10" cellspacing="5" bgcolor="white" height="100" width="500" cellpadding="5" id="TableScore">
-<caption><b><h2><u>STUDENT DATA<u></h2></b></caption>
-
-<tr>
-<th width="170"><h><u>NAME<u><h></th>
-
-<th width="100"><u>TOTAL</u></th>
-<th width="100"><u>AVERAGE</u></th>
-<th width="100"><u>PASS OR FAIL</u></th>
-</tr>
-</table>
+    <table border="20" cellspacing="5">
+        <caption><b><h1><u>INPUT MARKS</u></h1></b></caption>
+        <tr>
+            <th rowspan="2"><u>NAME</u></th>
+            <th colspan="4"><u>SCORE</u></th>
+        </tr>
+        <tr>
+            <th>HINDI</th>
+            <th>ENGLISH</th>
+            <th>MATHS</th>
+            <th>C PROGRAMMING</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="aname"></td>
+            <td><input type="text" id="am"></td>
+            <td><input type="text" id="aj"></td>
+            <td><input type="text" id="ad"></td>
+            <td><input type="text" id="an"></td>
+        </tr>
+        <tr>
+            <th colspan="5" height="20">
+                <input type="button" value="ADD TO TABLE" onclick="sub()">
+            </th>
+        </tr>
+    </table>
+    <br>
+    <table border="10" cellspacing="5" height="100" width="500" cellpadding="5" id="TableScore">
+        <caption><b><h2><u>STUDENT DATA</u></h2></b></caption>
+        <tr>
+            <th width="170"><u>NAME</u></th>
+            <th width="100"><u>TOTAL</u></th>
+            <th width="100"><u>AVERAGE</u></th>
+            <th width="100"><u>PASS OR FAIL</u></th>
+        </tr>
+    </table>
 </center>
 
 <script>
-function sub()
-{
-var n,k,r,e,v,sum,avg;
-n=(document.getElementById("aname").value);
-k=parseFloat(document.getElementById("am").value);
-r=parseFloat(document.getElementById("aj").value);
-e=parseFloat(document.getElementById("ad").value);
-v=parseFloat(document.getElementById("an").value);
-sum=k+r+e+v;
-avg=sum/4;
+function sub() {
+    var n = document.getElementById("aname").value;
+    var k = parseFloat(document.getElementById("am").value);
+    var r = parseFloat(document.getElementById("aj").value);
+    var e = parseFloat(document.getElementById("ad").value);
+    var v = parseFloat(document.getElementById("an").value);
+    var sum = k + r + e + v;
+    var avg = sum / 4;
 
-var newTable=document.getElementById("TableScore");
-var row=newTable.insertRow(-1);
-var cell1=row.insertCell(0);
-var cell2=row.insertCell(0);
-var cell3=row.insertCell(0);
-var cell4=row.insertCell(0);
+    var newTable = document.getElementById("TableScore");
+    var row = newTable.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
 
-cell4.innerHTML=n;
-cell3.innerHTML=sum;
-cell2.innerHTML=avg;
-
-if(avg>=50 && avg<=79)
-{
-cell1.innerHTML="<font color=green>PASS</font>";
-}
-else if(avg>=80)
-{
-cell1.innerHTML="<font color=green>PASS(EXCELENT)</font>";
-}
-else
-{
-cell1.innerHTML="<font color=red>FAIL</font>";
-}
+    cell1.innerHTML = n;
+    cell2.innerHTML = sum.toFixed(2);
+    cell3.innerHTML = avg.toFixed(2); if (avg >= 50 && avg <= 79) {
+        cell4.innerHTML = "<font color='green'>PASS</font>";
+    } else if (avg >= 80) {
+        cell4.innerHTML = "<font color='green'>PASS(EXCELLENT)</font>";
+    } else {
+        cell4.innerHTML = "<font color='red'>FAIL</font>";
+    }
 }
 </script>
 </body>
